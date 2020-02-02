@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Books (книги)
+		</title>
+		<link rel="icon" href="../../../../../img/library.ico" type="image/x-icon">
+		<meta  http-equiv="Content-Type"  content="text/html" charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11">
+		<meta name="description" content="Аудиокниги, книги">
+		<link rel="stylesheet" href="../../../style_audioBooks.css" type="text/css"/>
+		
+		<link rel="stylesheet" href="../../../audiojs.css" type="text/css"  title="audiojs"/>
+		<link rel="stylesheet" href="../../../visual.css" type="text/css"/>
+		<meta content="width=device-width, initial-scale=0.6" name="viewport">
+		<script src="../../../jquery.js"></script>
+		<script src="../../../audiojs/audio.js"></script>
+		
+		<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(54385483, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/54385483" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143562845-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143562845-1');
+</script>
+
+<script>
+	//http://kolber.github.io/audiojs/
+      $(function() { 
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+        
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+		//audio.play();
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+        // Keyboard shortcuts
+        $(document).keydown(function(e) {
+          var unicode = e.charCode ? e.charCode : e.keyCode;
+             // right arrow
+          if (unicode == 39) {
+            var next = $('li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.click();
+            // back arrow
+          } else if (unicode == 37) {
+            var prev = $('li.playing').prev();
+            if (!prev.length) prev = $('ol li').last();
+            prev.click();
+            // spacebar
+          } else if (unicode == 32) {
+            audio.playPause();
+          }
+        })
+      });
+    </script>
+
+	</head>	
+	<body >
+		<div id="content"> 
+			
+			<div id="pdf">	
+				<iframe  src="https://archive.org/embed/theyoungkingandotherstories_201907" width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+			</div>
+			<div id="cover_bar">
+			</div>
+			<div id="cont_sound">			
+				<div id="player">
+					
+						<div class="audiojs       " classname="audiojs" id="audiojs_wrapper0">
+							<audio preload="" src=""></audio>          
+							<div class="play-pause">             
+								<p class="play"></p>             
+								<p class="pause"></p>             
+								<p class="loading"></p>             
+								<p class="error"></p>           
+							</div>
+							<div class="scrubber">            
+								<div class="progress" style="width: 0px;">
+								</div>             
+								<div class="loaded" style="width: 0px;">
+								</div>           
+							</div>           
+							<div class="time">             
+								<em class="played">00:00</em>/<strong class="duration">00:00</strong>  
+							</div>           
+							<div class="error-message">
+							</div>
+						</div>
+						
+					<div id="list_series">
+						<ol id="list">
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/01%20The%20Young%20King.mp3">The Young King</a></li>
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/02%20The%20Birthday%20of%20the%20Infanta.mp3">The Birthday of the Infanta</a></li>
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/03%20The%20Happy%20Prince.mp3"></a>The Happy Prince</li>
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/04%20The%20Fisherman%20and%20his%20Soul.mp3">The Fisherman and his Soul</a></li>
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/05%20The%20Nightingale%20and%20the%20Rose.mp3">The Nightingale and the Rose</a></li>
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/06%20The%20Star%20Child.mp3">The Star Child</a></li>
+							<li><a href="#" data-src="https://archive.org/download/04thefishermanandhissoul/07%20The%20Selfish%20Giant.mp3">The Selfish Giant</a></li>
+							
+						</ol>
+					</div>	
+				</div>
+					<div id="link"><p>Download:
+						<a href="https://archive.org/download/theyoungkingandotherstories_201907/The%20Young%20King%20and%20Other%20Stories.pdf" target="_blank">pdf</a>, 
+						<a href="https://archive.org/compress/04thefishermanandhissoul/formats=VBR%20MP3&file=/04thefishermanandhissoul.zip" target="_blank">mp3</a>
+						</p>
+					</div>	
+			</div>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Kladovka
+		</title>
+		<link rel="icon" href="../../../../../img/library.ico" type="image/x-icon">
+		<meta  http-equiv="Content-Type"  content="text/html" charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11">
+		<meta name="description" content="Аудиокурсы">
+		
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous">
+		</script>
+		<script src="dist/js/jquery.simpleaudioplayer.js"></script>
+		<link rel="stylesheet" href="dist/css/simpleaudioplayer.min.css">
+		
+		
+		
+		<link rel="stylesheet" href="../style_audioBooks.css" type="text/css"/>
+		
+	</head>	
+	<body >
+		
+			<div>
+					<audio id="demo" src="sample.mp3" crossorigin="anonymous"></audio>
+					
+					<div><audio controls=""><source src="https://archive.org/download/hound_01_201907/hound_01.mp3" type="audio/mpeg"></audio></div>
+			</div>
+					<script>
+						$('#demo').simpleAudioPlayer({
+  title: "Sample Music",
+  chapters: [
+    {
+      "seconds": 10,
+      "title": "<strong>Chapter 1:</strong> Text Here"
+    },
+    {
+      "seconds": 20,
+      "title": "<strong>Chapter 2:</strong> Text Here"
+    },
+    {
+      "seconds": 30,
+      "title": "<strong>Chapter 3:</strong> Text Here"
+    },
+    ...
+  ]
+});
+					</script>
+					<script>
+var instance = $('#demo').simpleAudioPlayer();
+
+// jumps by number of seconds
+instance.jumpBy(offset)
+
+// jumps to a specific position
+instance.jumpTo(seconds)
+
+// fadeOut
+instance.fadeOut(duration)
+
+// fadeOut after x seconds
+instance.fadeOutAfterSeconds(duration, offset)
+
+// fadeOut after x chapter
+instance.fadeOutAfterChapter(duration, chapter)
+
+// fadeOut after x percent
+instance.fadeOutAfterPercent(duration, percentage)
+					</script>
+
+
+		
+	</body>
+	<script src="scr_audioBooks.js"> </script>
+</html>

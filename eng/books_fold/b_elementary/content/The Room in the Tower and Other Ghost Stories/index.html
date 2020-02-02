@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Books (книги)
+		</title>
+		<link rel="icon" href="../../../../../img/library.ico" type="image/x-icon">
+		<meta  http-equiv="Content-Type"  content="text/html" charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=11">
+		<meta name="description" content="Аудиокниги, книги">
+		<link rel="stylesheet" href="../../../style_audioBooks.css" type="text/css"/>
+		
+		<link rel="stylesheet" href="../../../audiojs.css" type="text/css"  title="audiojs"/>
+		<link rel="stylesheet" href="../../../visual.css" type="text/css"/>
+		<meta content="width=device-width, initial-scale=0.6" name="viewport">
+		<script src="../../../jquery.js"></script>
+		<script src="../../../audiojs/audio.js"></script>
+		
+		<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(54385483, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/54385483" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143562845-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143562845-1');
+</script>
+
+<script>
+	//http://kolber.github.io/audiojs/
+      $(function() { 
+        // Setup the player to autoplay the next track
+        var a = audiojs.createAll({
+          trackEnded: function() {
+            var next = $('ol li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.addClass('playing').siblings().removeClass('playing');
+            audio.load($('a', next).attr('data-src'));
+            audio.play();
+          }
+        });
+        
+        // Load in the first track
+        var audio = a[0];
+            first = $('ol a').attr('data-src');
+        $('ol li').first().addClass('playing');
+        audio.load(first);
+		//audio.play();
+
+        // Load in a track on click
+        $('ol li').click(function(e) {
+          e.preventDefault();
+          $(this).addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', this).attr('data-src'));
+          audio.play();
+        });
+        // Keyboard shortcuts
+        $(document).keydown(function(e) {
+          var unicode = e.charCode ? e.charCode : e.keyCode;
+             // right arrow
+          if (unicode == 39) {
+            var next = $('li.playing').next();
+            if (!next.length) next = $('ol li').first();
+            next.click();
+            // back arrow
+          } else if (unicode == 37) {
+            var prev = $('li.playing').prev();
+            if (!prev.length) prev = $('ol li').last();
+            prev.click();
+            // spacebar
+          } else if (unicode == 32) {
+            audio.playPause();
+          }
+        })
+      });
+    </script>
+
+	</head>	
+	<body >
+		<div id="content"> 
+			
+			<div id="pdf">	
+				<iframe  src="https://archive.org/embed/theroominthetowerandotherghoststories" width="100%" height="100%" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+			</div>
+			<div id="cover_bar">
+			</div>
+			<div id="cont_sound">			
+				<div id="player">
+					
+						<div class="audiojs       " classname="audiojs" id="audiojs_wrapper0">
+							<audio preload="" src=""></audio>          
+							<div class="play-pause">             
+								<p class="play"></p>             
+								<p class="pause"></p>             
+								<p class="loading"></p>             
+								<p class="error"></p>           
+							</div>
+							<div class="scrubber">            
+								<div class="progress" style="width: 0px;">
+								</div>             
+								<div class="loaded" style="width: 0px;">
+								</div>           
+							</div>           
+							<div class="time">             
+								<em class="played">00:00</em>/<strong class="duration">00:00</strong>  
+							</div>           
+							<div class="error-message">
+							</div>
+						</div>
+						
+					<div id="list_series">
+						<ol id="list">
+						<li><a href="#" data-src="https://archive.org/download/side1_201907/side%201.mp3">The Room in the Tower and Other Ghost Stories</a></li>
+						<li><a href="#" data-src="https://archive.org/download/side1_201907/side%202.mp3">The Room in the Tower and Other Ghost Stories</a></li>
+						
+						</ol>
+					</div>	
+				</div>
+					<div id="link"><p>Download:
+						<a href="https://archive.org/download/theroominthetowerandotherghoststories/The%20Room%20in%20the%20Tower%20and%20Other%20Ghost%20Stories.pdf" target="_blank">pdf</a>, 
+						<a href="" target="_blank">mp3</a>
+						</p>
+					</div>	
+			</div>
+			
+		</div>
+	</body>
+</html>
